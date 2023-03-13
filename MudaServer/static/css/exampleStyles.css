@@ -1,0 +1,12 @@
+h1, p {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body {
+    background-color: antiquewhite;
+}
+
+img {
+    max-width: 50;
+    max-height: 50;
+}
