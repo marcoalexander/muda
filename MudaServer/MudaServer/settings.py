@@ -15,10 +15,6 @@ import os
 from dotenv import load_dotenv
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))	
-STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static/"),
-)
 
 load_dotenv()
 
@@ -37,6 +33,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+STATIC_URL = '/static/'
+
 
 # Application definition
 
@@ -48,6 +46,15 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.db.models",
+    "django.db.migrations",
+    "django.conf.urls",
+    "django.apps",
+    "django.utils.timezone",
+    "rest_framework",
+    "django_mysql",
+    "django.shortcuts",
+    "posts",
 ]
 
 MIDDLEWARE = [
@@ -65,7 +72,7 @@ ROOT_URLCONF = "MudaServer.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, 'templates')],
+        "DIRS": [],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -84,12 +91,16 @@ WSGI_APPLICATION = "MudaServer.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-#DATABASES = {
-#    "default": {
-#        "ENGINE": "django.db.backends.sqlite3",
-#        "NAME": BASE_DIR / "db.sqlite3",
-#    }
-#}
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        'NAME': 'mudadb',
+        'USER': 'django',
+        'PASSWORD': 'j%NT#MBzooP9gKdFt44d$nc!wQPLKb',
+        'HOST': 'localhost',
+        "PORT": '3306',
+    }
+}
 
 
 # Password validation
@@ -121,12 +132,6 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 
 USE_TZ = True
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.1/howto/static-files/
-
-STATIC_URL = "static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
