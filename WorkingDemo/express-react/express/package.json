@@ -8,22 +8,33 @@
     "@aws-sdk/client-s3": "^3.100.0",
     "@aws-sdk/s3-request-presigner": "^3.306.0",
     "@prisma/client": "^4.12.0",
-    "prisma": "^4.12.0",
     "aws-sdk": "^2.853.0",
     "dotenv": "^8.2.0",
     "express": "^5.0.0-beta.1",
     "multer": "^1.4.5-lts.1",
-    "sharp": "^0.30.6",
-    "npx": "^10.2.2"
+    "npx": "^10.2.2",
+    "prisma": "^4.12.0",
+    "sharp": "^0.30.6"
   },
   "scripts": {
     "start": "node server.js",
-    "dev": "npx nodemon server.js"
+    "dev": "npx nodemon server.js",
+    "static-scan": "./node_modules/.bin/es6-plato -r -d ./reports -e .eslintrc.json ./*.js",
+    "lint": "npx eslint ./*.js --format html --output-file reports/eslint.html",
+    "security": "npm audit --json | npm-audit-html --output reports/audit.html"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "es6-plato": "^1.2.3",
+    "eslint": "^8.22.0",
+    "eslint-config-standard": "^14.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-security": "^1.7.1",
+    "jest": "^29.5.0",
     "nodemon": "^2.0.16",
     "prisma": "^4.12.0"
   }
